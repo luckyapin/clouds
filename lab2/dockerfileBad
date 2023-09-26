@@ -1,0 +1,13 @@
+#Плохая практика использовать latest
+FROM python:latest
+
+WORKDIR /app  
+
+#Плохая практика использование множества RUN 
+RUN pip install telebot
+RUN pip install emoji        
+
+COPY tgbot.py .
+
+#Плохая практика использовать CMD
+CMD ["python", "tgbot.py"]
