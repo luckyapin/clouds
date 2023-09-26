@@ -90,7 +90,7 @@ P.S. Для более краткого изложения в отчете ис�
 в хорошем  Dockerfile, а также две плохие практики по использованию этого контейнера.
 ```
 
-Было решено обернуть в docker-контейнер [телеграм-бот](https://github.com/daryasokolova04/template/blob/main/lab2/tgbot.py), написанный на языке python. 
+Было решено обернуть в docker-контейнер [телеграм-бот](https://github.com/luckyapin/clouds/blob/main/lab2/tgbot.py), написанный на языке python. 
 Был создан файл [dockerfile](https://github.com/luckyapin/clouds/blob/main/lab2/dockerfile), в котором были описаны инструкции для Docker-a.
 
 Основные команды, которые были использованы:   
@@ -103,56 +103,59 @@ P.S. Для более краткого изложения в отчете ис�
 ---
 **Выполнение работы:**     
 
-### Плохой Dockerfile   
+### Плохой Dockerfile
 
 1. Использование образа ```python:latest``` без указания версии. Это может привести к несовместимостям и непредсказуемым результатам.
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/70f60135-7f4e-4d4e-bda6-0233003bb87b">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/354ebef2-d2d4-4693-baa9-19bd1d7fb7c7">
 </p>
 
 
 2. Множественные ```run``` (в нашем случае, 2) создают 2 слоя в docker-образе. Это может привести к увеличению сложности и трудностям в управлении контейнерами и неправильной изоляции компонентов.
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/ef5e0023-ab8d-4a0e-83b2-3136a4b038c3">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/82b6696d-30b3-4895-80ef-acab3b0ac0e4">
 </p>
 
 3. Использование ```CMD``` для запуска приложения. Так пользователи могут переопределять исполняемый файл.
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/7e2b4176-12b5-4d5e-80c7-01bcdee15ee4">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/b09ea261-aade-42e9-8f37-09250d8ce2db">
 </p>
 
-### Хороший Dockerfile   
+### Хороший Dockerfile
+
+
 1. Указание конкретной версии образа ```python```. Это обеспечивает стабильность и повторяемость сборки.   
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/6f11581e-67da-492d-ad5e-6f0e697d5e75">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/551484a2-9dc1-4df2-a6bd-07fd349fc6c5">
 </p>
 
 2. Использование одной ```run``` команды облегчает управление контейнерами, обеспечивает лучшую изоляцию и эффективное использование ресурсов.  
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/e7b301d3-2750-4d63-bfe3-d1e422b386b2">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/f6db1f69-dbed-4b4f-88f1-287e2836a599">
 </p>
 
 3. Использование ```ENTRYPOINT``` для запуска приложения - позволяет установить исполняемый файл по умолчанию и передавать аргументы. Так пользователь образа не сможет переопределить поведение приложения в контейнере.     
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/890f0348-d3cd-44eb-8fc1-16d4d13d6e66">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/9be004b9-19e5-4b80-9448-724b9e2d7bb3">
 </p>
 
 
 ### Запуск контейнера
 
+
 Приложение в Docker-е:
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/0c7fde8b-e87e-40df-9d28-02c1d1b4c359">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/075dfe06-f593-4dac-a4b2-3973b38968c7">
 </p>       
 
 Запускаем контейнер командой ```docker build -t cloudbot .```  
 <p align='center'>
-<img width='600px' src="https://github.com/daryasokolova04/template/assets/112976450/a6b20c73-4ec4-4c57-9c7d-12a7e0b44085">
+<img width='600px' src="https://github.com/luckyapin/clouds/assets/112976450/d4faeefe-72eb-4634-9aff-4ac92456b518">
 </p>     
 
 ... и получаем рабочий телеграм-бот.
 <p align='center'>
-<img width='300px' src="https://github.com/daryasokolova04/template/assets/112976450/a4ea0961-2ab5-4380-a34c-96d383c3261d">
+<img width='300px' src="https://github.com/luckyapin/clouds/assets/112976450/b9bdef09-b58c-4166-88cc-8a2ceb07e495">
 </p>
 
 
