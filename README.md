@@ -430,7 +430,7 @@ Azure Compute — это служба облачных вычислений, п�
 
 ### Итоговая таблица:
 
-<img width="1248" alt="image" src="https://github.com/luckyapin/clouds/assets/112975832/cb2792fd-d0e5-44c1-81f5-cc655a5c9116">
+<img width="1249" alt="image" src="https://github.com/luckyapin/clouds/assets/112975832/7d27435e-bb22-441a-a4cb-5c83e0cde95c">
 
 ### Вывод:
 
